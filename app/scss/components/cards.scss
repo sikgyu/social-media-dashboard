@@ -50,9 +50,27 @@
     }
 
     &__count {
-        &--big {
+        color: var(--light-bg);
+        font-weight: 700;
+        letter-spacing: rem(-2);
+        line-height:1;
+        margin-bottom: rem(4);
 
+        &--big {
+            font-size: rem(56);
         }
+    }
+
+    &__followers {
+        margin-bottom: rem(25);
+    }
+
+    &__label {
+        font-size: rem(12);
+        letter-spacing: rem(5);
+        font-weight: 400;
+        color: var(--dark-text1);
+        text-transform: uppercase;
     }
 }
 
