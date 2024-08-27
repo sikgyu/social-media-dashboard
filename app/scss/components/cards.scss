@@ -1,24 +1,61 @@
 @use '../util' as *;
 
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(30);
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
 .card {
     background: var(--dark-card);
     color: var(--dark-text1);
-    width: rem(255);
+    flex: 1; 
     text-align: center;
+    border-radius: rem(5);
     padding: rem(25);
+    overflow: hidden;
 
-    &--facebook{
+    &--facebook {
+        border-top: rem(5) solid var(--facebook);
+      }
+    
+      &--twitter {
+        border-top: rem(5) solid var(--twitter);
+      }
+    
+      &--instagram {
+        position: relative;
+        &::before {
+            content: '';
+            height: rem(5);
+            width: 100%;
+            background: var(--instagram-start);
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
 
-    }
-    &--twitter{
-
-    }
-    &--instagram{
-
-    }
-    &--youtube{
-
-    }
+            background: linear-gradient(
+              225deg,
+              var(--instagram-end),
+              var(--instagram-middle) 50.91%,
+              var(--instagram-start) 100%
+            );
+        }
+      }
+    
+      &--youtube {
+        border-top: rem(5) solid var(--youtube);
+      }
 
 
     &__icon {
@@ -42,6 +79,7 @@
         justify-content: center;
         align-items: center;
         margin-bottom: rem(28);
+        margin-top: rem(5);
     }
 
     &__username {
@@ -71,6 +109,30 @@
         font-weight: 400;
         color: var(--dark-text1);
         text-transform: uppercase;
+    }
+
+    &__change {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(12);
+        font-weight: 700;
+
+        &--up {
+            color: var(--Limegreen);
+        }
+
+        &--down {
+            color: var(--brightred);
+        }
+    }
+
+    img {
+        margin-right: rem(4);
+    }
+
+    &__number {
+       
     }
 }
 
