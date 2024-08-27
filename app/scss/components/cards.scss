@@ -1,4 +1,4 @@
-@use '../util' as *;
+@use "../util" as *;
 
 .cards {
   display: grid;
@@ -14,125 +14,134 @@
   }
 }
 
-
 .card {
-    background: var(--dark-card);
-    color: var(--dark-text1);
-    flex: 1; 
-    text-align: center;
-    border-radius: rem(5);
-    padding: rem(25);
-    overflow: hidden;
+  background: var(--dark-card);
+  color: var(--dark-text1);
+  flex: 1;
+  text-align: center;
+  border-radius: rem(5);
+  padding: rem(25);
+  overflow: hidden;
+  transition: background 150ms ease-in-out;
+  cursor: pointer;
 
+  &:hover {
+    background: var(--dark-card-hover);
+  }
+
+  &--facebook {
+    border-top: rem(5) solid var(--facebook);
+  }
+
+  &--twitter {
+    border-top: rem(5) solid var(--twitter);
+  }
+
+  &--instagram {
+    position: relative;
+    &::before {
+      content: "";
+      height: rem(5);
+      width: 100%;
+      background: var(--instagram-start);
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+
+      background: linear-gradient(
+        225deg,
+        var(--instagram-end),
+        var(--instagram-middle) 50.91%,
+        var(--instagram-start) 100%
+      );
+    }
+  }
+
+  &--youtube {
+    border-top: rem(5) solid var(--youtube);
+  }
+
+
+  &__icon {
+    margin-right: rem(8);
     &--facebook {
-        border-top: rem(5) solid var(--facebook);
-      }
-    
-      &--twitter {
-        border-top: rem(5) solid var(--twitter);
-      }
-    
-      &--instagram {
-        position: relative;
-        &::before {
-            content: '';
-            height: rem(5);
-            width: 100%;
-            background: var(--instagram-start);
-            position: absolute;
-            display: block;
-            left: 0;
-            top: 0;
+    }
+    &--twitter {
+    }
+    &--instagram {
+    }
+    &--youtube {
+    }
+  }
 
-            background: linear-gradient(
-              225deg,
-              var(--instagram-end),
-              var(--instagram-middle) 50.91%,
-              var(--instagram-start) 100%
-            );
-        }
-      }
-    
-      &--youtube {
-        border-top: rem(5) solid var(--youtube);
-      }
+  &__platform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(28);
+    margin-top: rem(5);
+  }
 
+  &__subtitle {
+    font-size: rem(14);
+    font-weight: 700;
+    color: var(--text-color2);
+  }
 
-    &__icon {
-        margin-right: rem(8);
-        &--facebook{
+  &__username {
+    font-size: rem(12);
+    font-weight: bold;
+  }
 
-        }
-        &--twitter{
+  &__count {
+    color: var(--light-bg);
+    font-weight: 700;
+    letter-spacing: rem(-2);
+    line-height: 1;
+    margin-bottom: rem(4);
 
-        }
-        &--instagram{
-
-        }
-        &--youtube{
-
-        }
+    &--big {
+      font-size: rem(56);
     }
 
-    &__platform {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: rem(28);
-        margin-top: rem(5);
+    &--small {
+        font-size: rem(32);
+    }
+  }
+
+  &__followers {
+    margin-bottom: rem(25);
+  }
+
+  &__label {
+    font-size: rem(12);
+    letter-spacing: rem(5);
+    font-weight: 400;
+    color: var(--dark-text1);
+    text-transform: uppercase;
+  }
+
+  &__change {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: rem(12);
+    font-weight: 700;
+
+    &--up {
+      color: var(--Limegreen);
     }
 
-    &__username {
-        font-size: rem(12);
-        font-weight: bold;
+    &--down {
+      color: var(--brightred);
     }
+  }
 
-    &__count {
-        color: var(--light-bg);
-        font-weight: 700;
-        letter-spacing: rem(-2);
-        line-height:1;
-        margin-bottom: rem(4);
+  img {
+    margin-right: rem(4);
+  }
 
-        &--big {
-            font-size: rem(56);
-        }
-    }
-
-    &__followers {
-        margin-bottom: rem(25);
-    }
-
-    &__label {
-        font-size: rem(12);
-        letter-spacing: rem(5);
-        font-weight: 400;
-        color: var(--dark-text1);
-        text-transform: uppercase;
-    }
-
-    &__change {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: rem(12);
-        font-weight: 700;
-
-        &--up {
-            color: var(--Limegreen);
-        }
-
-        &--down {
-            color: var(--brightred);
-        }
-    }
-
-    img {
-        margin-right: rem(4);
-    }
-
-    &__number {
-       
-    }
+  &__number {
+  }
 }
-
